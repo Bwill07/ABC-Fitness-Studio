@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABC Fitness Studio - About Us</title>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; color: #ac1724; }
+    header, footer { background-color: #2343bd; color: white; text-align: center; padding: 1.5em 1em; }
+    nav { margin-top: 1em; }
+    nav a { color: white; text-decoration: none; margin: 0 0.5em; }
+    nav a:hover { text-decoration: underline; }
+    .container { padding: 2em; max-width: 1200px; margin: 0 auto; text-align: center; }
+    img { max-width: 100%; height: auto; margin-bottom: 1em; display: block; margin-left: auto; margin-right: auto; }
+    .small-logo { width: 10%; height: auto; }
+    ul { display: inline-block; text-align: left; }
+    form { margin-top: 2em; text-align: left; display: inline-block; }
+    input, textarea { width: 100%; padding: 0.5em; margin-bottom: 1em; }
+    button { padding: 0.5em 1em; background-color: #ac1724; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Us</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About Us</a> |
+      <a href="trainers.html">Personal Trainers</a> |
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="about-info">
+      <img src="images/Client2_Logo.png" alt="Logo" class="small-logo">
+      <img src="images/image-about.png" alt="About Image">
+      <h2>ABC Fitness Information</h2>
+      <p>This section will contain more details about the studio.</p>
+    </section>
+
+    <section class="hours">
+      <h3>Hours of Operation</h3>
+      <ul>
+        <li>Monday–Friday: 6 a.m. to 8 p.m.</li>
+        <li>Saturday: 8 a.m. to 6 p.m.</li>
+        <li>Sunday: Closed</li>
+      </ul>
+    </section>
+
+    <section class="contact-form">
+      <h3>Contact Us</h3>
+      <form onsubmit="handleForm(event)">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 ABC Fitness Studio. All rights reserved.</p>
+    <button onclick="subscribe()">Subscribe</button>
+  </footer>
+
+  <script>
+    function subscribe() { alert("Thank you for subscribing"); }
+    function handleForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      const contactData = { name, email, message, timestamp: new Date().toISOString() };
+      let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+      messages.push(contactData);
+      localStorage.setItem("contactMessages", JSON.stringify(messages));
+      alert("Thank you for your message");
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>

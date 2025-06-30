@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABC Fitness Studio</title>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; color: #ac1724; }
+    header, footer { background-color: #2343bd; color: white; text-align: center; padding: 1.5em 1em; }
+    nav { margin-top: 1em; }
+    nav a { color: white; text-decoration: none; margin: 0 0.5em; }
+    nav a:hover { text-decoration: underline; }
+    .container { padding: 2em; max-width: 1200px; margin: 0 auto; text-align: center; }
+    img { max-width: 100%; height: auto; margin-bottom: 1em; display: block; margin-left: auto; margin-right: auto; }
+    .small-logo { width: 10%; height: auto; }
+    button { padding: 0.5em 1em; background-color: #ac1724; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ABC Fitness Studio</h1>
+    <h2>Welcome to our homepage</h2>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About Us</a> |
+      <a href="trainers.html">Personal Trainers</a> |
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <img src="images/Client2_Logo.png" alt="Logo" class="small-logo">
+      <img src="images/image-home.png" alt="Main Image">
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 ABC Fitness Studio. All rights reserved.</p>
+    <button onclick="subscribe()">Subscribe</button>
+  </footer>
+
+  <script>
+    function subscribe() {
+      alert("Thank you for subscribing");
+    }
+  </script>
+</body>
+</html>

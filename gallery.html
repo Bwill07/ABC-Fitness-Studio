@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABC Fitness Studio - Gallery</title>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; color: #ac1724; }
+    header, footer { background-color: #2343bd; color: white; text-align: center; padding: 1.5em 1em; }
+    nav { margin-top: 1em; }
+    nav a { color: white; text-decoration: none; margin: 0 0.5em; }
+    nav a:hover { text-decoration: underline; }
+    .container { padding: 2em; max-width: 1200px; margin: 0 auto; text-align: center; }
+    img { max-width: 100%; height: auto; margin-bottom: 1em; display: block; margin-left: auto; margin-right: auto; }
+    .small-logo { width: 10%; height: auto; }
+    button { padding: 0.5em 1em; background-color: #ac1724; color: white; border: none; cursor: pointer; margin: 0.5em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gallery</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About Us</a> |
+      <a href="trainers.html">Personal Trainers</a> |
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="gallery">
+      <img src="images/Client2_Logo.png" alt="Logo" class="small-logo">
+      <img src="images/image.png" alt="Gallery Image 1">
+      <img src="images/image2.png" alt="Gallery Image 2">
+
+      <img src="images/merch.png" alt="Merch 1">
+      <p>Price: $25</p>
+      <button onclick="addToCart('Merch 1')">Add to Cart</button>
+
+      <img src="images/merch2.png" alt="Merch 2">
+      <p>Price: $30</p>
+      <button onclick="addToCart('Merch 2')">Add to Cart</button>
+
+      <div>
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="processOrder()">Process Order</button>
+        <button onclick="viewCart()">View Cart</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 ABC Fitness Studio. All rights reserved.</p>
+    <button onclick="subscribe()">Subscribe</button>
+  </footer>
+
+  <script>
+    function subscribe() { alert("Thank you for subscribing"); }
+    function addToCart(itemName) {
+      let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      cart.push(itemName);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+      alert("Item added to the cart");
+    }
+    function clearCart() {
+      let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      if (cart.length > 0) {
+        sessionStorage.removeItem("cart");
+        alert("Cart cleared");
+      } else {
+        alert("No items to clear");
+      }
+    }
+    function processOrder() {
+      let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      if (cart.length > 0) {
+        sessionStorage.removeItem("cart");
+        alert("Thank you for your order");
+      } else {
+        alert("Cart is empty");
+      }
+    }
+    function viewCart() {
+      let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      if (cart.length > 0) {
+        alert("Cart contains: " + cart.join(", "));
+      } else {
+        alert("Cart is empty");
+      }
+    }
+  </script>
+</body>
+</html>
